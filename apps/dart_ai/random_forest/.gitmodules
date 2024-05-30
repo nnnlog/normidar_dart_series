@@ -1,0 +1,3 @@
+[submodule "packages/decision_tree"]
+	path = packages/decision_tree
+	url = git@github.com:dropro/decision_tree.git

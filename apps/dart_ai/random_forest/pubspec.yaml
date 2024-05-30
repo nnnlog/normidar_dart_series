@@ -1,0 +1,17 @@
+name: random_forest
+description: Random Forest implementation in Dart
+version: 1.0.1
+homepage: https://github.com/normidar-group/normidar_dart_series/tree/main/apps/dart_ai
+
+environment:
+  sdk: ^3.3.2
+
+dependencies:
+  decision_tree: ^1.0.0
+
+dev_dependencies:
+  auto_exporter: ^3.1.0
+  build_runner: ^2.4.9
+  build_test: ^2.2.2
+  lints: ^3.0.0
+  test: ^1.24.0
