@@ -1,4 +1,4 @@
-import 'package:app_exm/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_manager/firebase_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +9,8 @@ void main() {
   FirebaseManager.share.initApp(
     FirebaseInitOptions(
       requiresLogin: true,
-      firebaseOptions: DefaultFirebaseOptions.currentPlatform,
+      firebaseOptions:
+          null as FirebaseOptions, //TODO: Must be DefaultFirebaseOptions.currentPlatform,
       home: () => const FirestoreMatcherPage(),
     ),
   );
