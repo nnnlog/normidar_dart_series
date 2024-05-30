@@ -1,0 +1,73 @@
+name: firebase_manager
+description: A package to manage Firebase easily.
+version: 0.0.1
+repository: https://github.com/normidar-group/firebase_manager
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  firebase_core: ^2.1.0
+
+  # Firebase Auth
+  firebase_auth: ^4.0.2
+
+  # Google sign in
+  google_sign_in: ^6.1.4
+
+  # Apple sign in
+  sign_in_with_apple: ^5.0.0
+
+  # md5
+  crypto: ^3.0.2
+
+  # Firebase realtime database
+  firebase_database: ^10.3.6
+
+  # Firebase storage
+  firebase_storage: ^11.0.2
+  # firebase_ui_storage: ^0.1.0-dev.4 # use this if need
+
+  firebase_app_check: ^0.2.1+1
+
+  # for log
+  firebase_analytics: ^10.0.2
+
+  firebase_messaging: ^14.7.10
+
+  firebase_crashlytics: ^3.0.2
+
+  # create link to register by email
+  firebase_dynamic_links: ^5.0.17
+
+  # fire store
+  cloud_firestore: ^4.4.5
+
+  # firebase ui
+  firebase_ui_localizations: ^1.5.0
+
+  path_provider: ^2.0.13
+
+  # package name, bundle id
+  package_info_plus: ^4.0.0
+  collection: ^1.17.2
+  cloud_firestore_platform_interface: ^6.0.7
+  json_annotation: ^4.8.1
+  sign_in_button: ^3.2.0
+  firebase_messaging_platform_interface: ^4.5.18
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.16.0
+
+  auto_exporter: ^3.0.0
+  build_runner: ^2.4.6
+  build_test: ^2.2.0
+
+fonts:
+  - family: SocialIcons
+    fonts:
+      - asset: packages/firebase_ui_auth/fonts/SocialIcons.ttf
