@@ -1,1 +1,3 @@
-# normidar_dart_series
+# Normidar Dart Series
+
+Some Dart plugins by Normidar group.
