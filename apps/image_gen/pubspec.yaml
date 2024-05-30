@@ -1,0 +1,23 @@
+name: image_gen
+description: A tool to generate images from dart code.
+version: 0.1.0
+repository: https://github.com/normidar-group/image_gen
+
+environment:
+  sdk: ^3.3.2
+
+dependencies:
+  image: ^4.1.7
+  build: ^2.4.1
+  source_gen: ^1.5.0
+  dart_eval: ^0.7.9
+  analyzer: ^6.4.0
+
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
+
+  build_runner: ^2.4.8
+  build_test: ^2.2.0
+  auto_exporter: ^3.0.2

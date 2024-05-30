@@ -1,0 +1,3 @@
+class ImageGen {
+  const ImageGen();
+}
