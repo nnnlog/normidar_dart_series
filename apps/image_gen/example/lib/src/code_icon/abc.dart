@@ -8,6 +8,10 @@ class Abc extends ImageGenerator {
     const height = 512;
     final rt = GenImage(width: width, height: height);
     final layer = Layer(width: width, height: height);
+    layer.draw(Img(path: 'assets/resource/hamster.png'));
+    layer.draw(Mapper.byFunction(mapp: (_) => 0, type: MapperType.s));
+    layer.draw(
+        Mapper.byFunction(mapp: (v) => v < 128 ? 0 : 255, type: MapperType.v));
     layer.draw(const Rect(
       left: PercentQuantity(0),
       right: PercentQuantity(0.5),
