@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fm_auth/src/login/providers/apple_login_provider.dart';
+import 'package:fm_auth/src/login/providers/google_login_provider.dart';
+import 'package:fm_auth/src/login/providers/login_provider.dart';
+import 'package:fm_auth/src/ui/default_login_page.dart';
 
 class LoginTool {
   LoginProvider? _provider;

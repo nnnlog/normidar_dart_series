@@ -1,14 +1,21 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+import 'login/login_tool.dart';
+import 'user/fire_user.dart';
+import 'user_account_type.dart';
+
+@AutoExport()
 class FireAuth {
   final login = LoginTool();
 
-  FireAuth();
+  FireAuth._();
+
+  static final FireAuth shared = FireAuth._();
 
   bool get isLoggedIn => getNowUser() != null;
 

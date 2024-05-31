@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_manager/src/auth/user/fire_user.dart';
-import 'package:firebase_manager/src/utils/log.dart';
+import '../user/fire_user.dart';
 import 'package:flutter/material.dart';
 
 /// auto register anonymous user
@@ -21,7 +20,7 @@ class _SafeAnonymouslyRegisterPageState
     extends State<SafeAnonymouslyRegisterPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: CircularProgressIndicator()),
     );
   }
@@ -29,7 +28,6 @@ class _SafeAnonymouslyRegisterPageState
   @override
   void initState() {
     FirebaseAuth.instance.authStateChanges().listen((user) {
-      Log.debug(() => '[firebase][log]user_changed: $user');
       if (user != null && mounted) {
         Navigator.pushAndRemoveUntil(
           context,

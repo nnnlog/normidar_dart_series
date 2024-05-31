@@ -1,6 +1,6 @@
 name: firebase_manager
 description: A package to manage Firebase easily.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/normidar-group/normidar_dart_series/tree/main/apps/firebase_manager
 
 environment:
@@ -12,14 +12,7 @@ dependencies:
 
   firebase_core: ^2.1.0
 
-  # Firebase Auth
-  firebase_auth: ^4.0.2
-
-  # Google sign in
-  google_sign_in: ^6.1.4
-
-  # Apple sign in
-  sign_in_with_apple: ^5.0.0
+  fm_auth: ^0.0.1
 
   # md5
   crypto: ^3.0.2
@@ -51,12 +44,9 @@ dependencies:
 
   path_provider: ^2.0.13
 
-  # package name, bundle id
-  package_info_plus: ^4.0.0
   collection: ^1.17.2
   cloud_firestore_platform_interface: ^6.0.7
   json_annotation: ^4.8.1
-  sign_in_button: ^3.2.0
   firebase_messaging_platform_interface: ^4.5.18
 
 dev_dependencies:

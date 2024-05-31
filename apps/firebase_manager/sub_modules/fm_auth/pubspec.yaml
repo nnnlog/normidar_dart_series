@@ -1,0 +1,38 @@
+name: fm_auth
+description: "an application by normidar."
+version: 0.0.1
+homepage: https://github.com/normidar-group/normidar_dart_series/tree/main/apps/firebase_manager
+
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  firebase_auth: ^4.0.2
+  sign_in_button: ^3.2.0
+  google_sign_in: ^6.1.4
+  sign_in_with_apple: ^5.0.0
+  auto_exporter_annotation: ^1.0.1
+  # When use e-mail for signin we should get divice infomation.
+  package_info_plus: ^4.0.0
+  # some passcode algorithm
+  crypto: ^3.0.2
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+  auto_exporter: ^3.0.0
+  build_runner: ^2.4.6
+  build_test: ^2.2.0
+
+flutter:
+
+

@@ -1,7 +1,10 @@
-import 'package:firebase_manager/src/init/firebase_manager.dart';
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:flutter/material.dart';
+import 'package:fm_auth/src/login/login_tool.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
+
+@AutoExport()
 /// TODO: implement login features
 class DefaultLoginPage extends StatelessWidget {
   final bool allowAnonymousLogin;
@@ -43,7 +46,8 @@ class DefaultLoginPage extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 onPressed: () async {
-                  final result = await fs.auth.login.loginByGoogle();
+                  // TODO: dont use  LoginTool()
+                  final result = await LoginTool().loginByGoogle();
 
                   final onLoginSuccessJumpTo = this.onLoginSuccessJumpTo;
                   if (onLoginSuccessJumpTo != null) {

@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
+import 'login_provider.dart';
 
 class AppleLoginProvider extends LoginProvider {
   @override

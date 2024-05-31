@@ -63,3 +63,8 @@ you can see the example to know how to use this annotation.
 change the `default_export_all` option to false, and add @AutoExport() annotation to the files that you want to export.
 
 > feature advised by @sm-riyadh
+
+
+## TODO
+
+- `@AutoExport()` will Export all things in file, should only export the annotated things.
