@@ -5,6 +5,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fm_auth/fm_auth.dart';
+import 'package:fm_storage/fm_storage.dart';
 
 import '../../firebase_manager.dart';
 
@@ -17,6 +18,7 @@ FirebaseManager get fs => FirebaseManager.share;
 class FirebaseManager {
   static FirebaseManager share = FirebaseManager._();
   late Database db;
+  late Storage storage;
   late Crashlytics crashlytics;
   final FireAuth auth = FireAuth.shared;
   FirebaseManager._();
@@ -26,6 +28,7 @@ class FirebaseManager {
   /// we will do it for you.
   void initApp(FirebaseInitOptions options) {
     db = Database(rootPath: options.rootName);
+    storage = Storage(root: options.rootName);
 
     // crashlytics init
     crashlytics = Crashlytics();

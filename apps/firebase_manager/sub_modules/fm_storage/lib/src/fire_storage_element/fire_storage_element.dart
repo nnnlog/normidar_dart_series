@@ -1,23 +1,18 @@
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import 'fire_folder_ref.dart';
+
 abstract class FireStorageElement {
-  final String path;
+  String get path;
 
   Reference? _ref;
 
-  FireStorageElement(String path)
-      : path = fs.db.storage.getFullPath(path);
-
-  FireStorageElement.fullPath(this.path);
-
-  FireStorageElement.ref(Reference ref) : path = ref.fullPath;
   Future<bool> checkExist();
 
   FireFolderRef getFatherFolder() {
     final lastIndex = path.lastIndexOf('/');
     final folderPath = path.substring(0, lastIndex);
-    return FireFolderRef.fullPath(folderPath);
+    return FireFolderRef(folderPath);
   }
 
   String getName() {

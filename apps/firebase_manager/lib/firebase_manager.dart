@@ -27,14 +27,6 @@ export 'package:firebase_manager/src/database/data_matcher/databinder/abs_data_b
 export 'package:firebase_manager/src/database/data_matcher/data_matcher.dart';
 export 'package:firebase_manager/src/database/data_matcher/matcher_dataset.dart';
 export 'package:firebase_manager/src/database/data_matcher/data_single_matcher.dart';
-export 'package:firebase_manager/src/database/storage/fire_storage_element/file_compare.dart';
-export 'package:firebase_manager/src/database/storage/fire_storage_element/fire_storage_element.dart';
-export 'package:firebase_manager/src/database/storage/fire_storage_element/download_progress.dart';
-export 'package:firebase_manager/src/database/storage/fire_storage_element/fire_file_ref.dart';
-export 'package:firebase_manager/src/database/storage/fire_storage_element/fire_folder_ref.dart';
-export 'package:firebase_manager/src/database/storage/storage.dart';
-export 'package:firebase_manager/src/database/storage/files_pool/fm_file_pool_image.dart';
-export 'package:firebase_manager/src/database/storage/files_pool/pool_file.dart';
 export 'package:firebase_manager/src/database/realtime/ui/table_builder.dart';
 export 'package:firebase_manager/src/database/realtime/ui/query_builder.dart';
 export 'package:firebase_manager/src/database/realtime/realtime_result/database_result.dart';

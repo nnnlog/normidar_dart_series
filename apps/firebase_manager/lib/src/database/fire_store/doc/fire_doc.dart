@@ -85,15 +85,6 @@ class FireDoc {
     }
   }
 
-  Future<PoolFile?> getFilePool(String key) async {
-    final data = await get();
-    final md5 = data?[key];
-    if (md5 is String) {
-      return await fs.db.storage.getPoolFile(md5);
-    }
-    return null;
-  }
-
   String getID() => _reference.id;
 
   /// this Get will include id in the map.
@@ -215,15 +206,6 @@ class FireDoc {
 
     Log.debug(() => 'fire_doc.dart update: $data, id: $id');
     return id;
-  }
-
-  /// please premiss the file exists
-  Future<void> updateAsFilePool(String key, File file) async {
-    if (!await file.exists()) {
-      throw Exception('file not exists');
-    }
-    final pFile = await fs.db.storage.uploadPoolFile(file);
-    await update({key: pFile?.md5});
   }
 
   Future<String> updateMatcherDataset(FmMatcherDataset dataset) async {

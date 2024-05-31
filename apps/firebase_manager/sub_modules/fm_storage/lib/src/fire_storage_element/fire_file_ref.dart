@@ -1,16 +1,22 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:crypto/crypto.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'download_progress.dart';
+import 'file_compare.dart';
+import 'fire_storage_element.dart';
+
+@AutoExport()
 class FireFileRef extends FireStorageElement {
-  FireFileRef(super.path);
-  FireFileRef.fullPath(super.path) : super.fullPath();
-  FireFileRef.ref(super.ref) : super.ref();
+  @override
+  final String path;
+
+  FireFileRef(this.path);
 
   String get directoryPath {
     return path.substring(0, path.lastIndexOf("/"));
@@ -18,10 +24,6 @@ class FireFileRef extends FireStorageElement {
 
   String get fileName {
     return path.substring(path.lastIndexOf("/") + 1);
-  }
-
-  Storage get storage {
-    return fs.db.storage;
   }
 
   @override
@@ -136,7 +138,7 @@ class FireFileRef extends FireStorageElement {
     } else {
       yield Downloaded(file, hash: null);
       _debugPrint(debugString, 'file exists', path);
-      
+
       // compare cost time
       final compareData = await compare(file);
       _debugPrint(debugString, 'after compare', path);

@@ -1,13 +1,20 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:crypto/crypto.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'files_pool/pool_file.dart';
+import 'fire_storage_element/fire_file_ref.dart';
+import 'fire_storage_element/fire_folder_ref.dart';
+import 'fire_storage_element/fire_storage_element.dart';
+
 /// there is not check file exits logic in it.
-class Storage extends DatabaseInterface {
-  Storage({required super.rootPath});
+@AutoExport()
+class Storage {
+  final String root;
+  Storage({required this.root});
 
   Future<FireStorageElement?> getElementAuto(String path) async {
     final file = FireFileRef(path);
@@ -15,7 +22,7 @@ class Storage extends DatabaseInterface {
       return file;
     }
 
-    final folder = FireFolderRef(path);
+    final folder = FireFolderRef(root + path);
     if (await folder.checkExist()) {
       return folder;
     }
@@ -74,18 +81,14 @@ class Storage extends DatabaseInterface {
 
   /// Return the path of the root folder
   FireFolderRef rootFolderRef() {
-    final rootPath = getPrefixPath();
-    return FireFolderRef.fullPath(rootPath);
+    return FireFolderRef(root);
   }
 
   /// upload file to server
   /// if file is not exist on local, will return null
   Future<PoolFile?> uploadPoolFile(File file) async {
-    Log.debug(() => 'storage: start upload pool file');
-    final tool = fs.db.storage;
     if (await file.exists()) {
-      final md5 = await tool.getLocalFileMD5(file);
-      Log.debug(() => 'storage: file exists, md5: $md5');
+      final md5 = await getLocalFileMD5(file);
       final serverFile = _getFireFile(md5);
       if (!await serverFile.checkExist()) {
         final fireDir = _getFireFolder();
@@ -93,8 +96,6 @@ class Storage extends DatabaseInterface {
           'metaType': file.path.split('.').last,
         });
       }
-
-      Log.debug(() => 'storage: file upload');
 
       final localDirStr = (await _getFilesPoolDirectory()).path;
       await file.copy('$localDirStr/$md5');
@@ -122,7 +123,7 @@ class Storage extends DatabaseInterface {
   }
 
   FireFolderRef _getFireFolder() {
-    final severRootDir = fs.db.storage.rootFolderRef();
+    final severRootDir = rootFolderRef();
     return severRootDir.childFolder('filesPool');
   }
 

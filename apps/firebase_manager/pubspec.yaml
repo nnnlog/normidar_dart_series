@@ -13,16 +13,10 @@ dependencies:
   firebase_core: ^2.1.0
 
   fm_auth: ^0.0.1
-
-  # md5
-  crypto: ^3.0.2
+  fm_storage: ^0.0.1
 
   # Firebase realtime database
   firebase_database: ^10.3.6
-
-  # Firebase storage
-  firebase_storage: ^11.0.2
-  # firebase_ui_storage: ^0.1.0-dev.4 # use this if need
 
   firebase_app_check: ^0.2.1+1
 
@@ -42,7 +36,6 @@ dependencies:
   # firebase ui
   firebase_ui_localizations: ^1.5.0
 
-  path_provider: ^2.0.13
 
   collection: ^1.17.2
   cloud_firestore_platform_interface: ^6.0.7

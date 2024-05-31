@@ -8,7 +8,5 @@ class Database {
   late final FireStoreDatabase fireStore =
       FireStoreDatabase(rootPath: rootPath);
 
-  late final Storage storage = Storage(rootPath: rootPath);
-
   Database({required this.rootPath});
 }

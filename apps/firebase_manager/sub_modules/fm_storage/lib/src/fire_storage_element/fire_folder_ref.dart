@@ -1,16 +1,16 @@
 import 'dart:io';
-
-import 'package:firebase_manager/firebase_manager.dart';
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class FireFolderRef extends FireStorageElement {
-  FireFolderRef(super.path);
-  FireFolderRef.fullPath(super.path) : super.fullPath();
-  FireFolderRef.ref(super.ref) : super.ref();
+import 'fire_file_ref.dart';
+import 'fire_storage_element.dart';
 
-  Storage get storage {
-    return fs.db.storage;
-  }
+@AutoExport()
+class FireFolderRef extends FireStorageElement {
+  @override
+  final String path;
+
+  FireFolderRef(this.path);
 
   /// find all floder in father
   /// and check contains
@@ -30,14 +30,14 @@ class FireFolderRef extends FireStorageElement {
   FireFileRef childFile(dynamic name) {
     final ref = getReference();
     final childRef = ref.child(name.toString());
-    return FireFileRef.ref(childRef);
+    return FireFileRef(childRef.fullPath);
   }
 
   /// get the folder ref in this folder.
   FireFolderRef childFolder(dynamic name) {
     final ref = getReference();
     final childRef = ref.child(name.toString());
-    return FireFolderRef.ref(childRef);
+    return FireFolderRef(childRef.fullPath);
   }
 
   Future<List<FireFileRef>> listFiles() async {
@@ -46,7 +46,7 @@ class FireFolderRef extends FireStorageElement {
 
     List<FireFileRef> rt = [];
     for (var element in lst.items) {
-      rt.add(FireFileRef.ref(element));
+      rt.add(FireFileRef(element.fullPath));
     }
 
     return rt;
@@ -58,7 +58,7 @@ class FireFolderRef extends FireStorageElement {
 
     List<FireFolderRef> rt = [];
     for (var element in lst.prefixes) {
-      rt.add(FireFolderRef.ref(element));
+      rt.add(FireFolderRef(element.fullPath));
     }
 
     return rt;
@@ -66,7 +66,6 @@ class FireFolderRef extends FireStorageElement {
 
   Future<Task> upload(File file,
       {String? fileName, Map<String, String>? metadataMap}) async {
-    Log.debug(() => 'fire_folder.dart upload file: ${file.path} to $path');
     Reference ref = FirebaseStorage.instance.ref().child(path);
     if (fileName != null) {
       ref = ref.child(fileName);
@@ -80,7 +79,6 @@ class FireFolderRef extends FireStorageElement {
     }
 
     final rt = ref.putFile(file, metadata);
-    Log.debug(() => 'fire_folder.dart upload file: ${file.path} to $path done');
     return rt;
   }
 
