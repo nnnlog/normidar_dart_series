@@ -28,7 +28,7 @@ class FirebaseManager {
   /// we will do it for you.
   void initApp(FirebaseInitOptions options) {
     db = Database(rootPath: options.rootName);
-    storage = Storage(root: options.rootName);
+    storage = Storage(rootPath: options.rootName);
 
     // crashlytics init
     crashlytics = Crashlytics();

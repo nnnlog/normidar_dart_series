@@ -1,6 +1,6 @@
 name: fm_storage
 description: "an application by normidar."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/normidar-group/normidar_dart_series/tree/main/apps/firebase_manager
 
 environment:
