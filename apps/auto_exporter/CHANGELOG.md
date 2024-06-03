@@ -1,4 +1,8 @@
 
+## [3.2.0] - 2024-6-3
+
+* Check annotaions each class, enum, method, variable.
+
 ## [3.1.2] - 2024-5-7
 
 * move plugin.
