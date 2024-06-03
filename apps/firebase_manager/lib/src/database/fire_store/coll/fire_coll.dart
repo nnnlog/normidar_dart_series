@@ -83,7 +83,7 @@ class FireColl {
 
   /// To build a list view with pagination
   Widget getListView({
-    required Widget Function(BuildContext, FireDocDataset) itemBuilder,
+    required Widget Function(BuildContext, FireDocTuple) itemBuilder,
     void Function(BuildContext)? onRefresh,
     int pageSize = 10,
     FirestoreLoadingBuilder? loadingBuilder,
@@ -155,11 +155,10 @@ class FireColl {
         restorationId: restorationId,
         clipBehavior: clipBehavior,
         itemBuilder: (context, snapshot) {
-          final doc = FireDoc(
-              snapshot.reference as DocumentReference<Map<String, dynamic>>);
-          final data = snapshot.data() as Map<String, dynamic>;
+          final casedSnapshot =
+              snapshot as QueryDocumentSnapshot<Map<String, dynamic>>;
           return itemBuilder(
-              context, FireDocDataset(doc, FireDoc.castMap(data)!));
+              context, FireDocTuple(casedSnapshot, FireDoc.castMap));
         });
   }
 
