@@ -1,11 +1,9 @@
 import 'dart:io';
-import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'fire_file_ref.dart';
 import 'fire_storage_element.dart';
 
-@AutoExport()
 class FireFolderRef extends FireStorageElement {
   @override
   final String path;
