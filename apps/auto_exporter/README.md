@@ -67,5 +67,4 @@ change the `default_export_all` option to false, and add @AutoExport() annotatio
 
 ## TODO
 
-- `@AutoExport()` will Export all things in file, should only export the annotated things.
 - add a feature to export all sub plugin classes.
