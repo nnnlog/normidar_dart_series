@@ -65,6 +65,20 @@ change the `default_export_all` option to false, and add @AutoExport() annotatio
 > feature advised by @sm-riyadh
 
 
-## TODO
+## Export specific sub packages
 
-- add a feature to export all sub plugin classes.
+Add a `sub_packages` field to your `build.yaml` file, type is list.
+
+like this(from example):
+
+```yaml
+targets:
+  $default:
+    builders:
+      auto_exporter:
+        options:
+          project_name: dart_example
+          sub_packages: 
+            - auto_exporter_annotation # the sub packages that you want to export
+```
+

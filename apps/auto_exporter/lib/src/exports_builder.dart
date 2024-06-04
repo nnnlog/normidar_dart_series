@@ -18,6 +18,9 @@ class ExportsBuilder implements Builder {
     };
   }
 
+  List<String> get exportSubPackage =>
+      (options.config['sub_packages'] as List?)?.cast<String>() ?? [];
+
   bool get isDefaultExportAll => options.config['default_export_all'] ?? true;
 
   String get packageName => options.config['project_name'] ?? 'exports';
@@ -55,6 +58,9 @@ class ExportsBuilder implements Builder {
           }
         }
       }
+    }
+    for (var e in exportSubPackage) {
+      expList.add("export 'package:$e/$e.dart';");
     }
     expList.add('');
 

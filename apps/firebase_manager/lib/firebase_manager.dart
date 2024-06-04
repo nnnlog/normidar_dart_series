@@ -38,3 +38,5 @@ export 'package:firebase_manager/src/database/data_matcher/databinder/realtime_d
 export 'package:firebase_manager/src/database/data_matcher/data_matcher.dart';
 export 'package:firebase_manager/src/database/data_matcher/matcher_dataset.dart';
 export 'package:firebase_manager/src/database/data_matcher/data_single_matcher.dart';
+export 'package:fm_auth/fm_auth.dart';
+export 'package:fm_storage/fm_storage.dart';
