@@ -1,0 +1,31 @@
+name: ios_native_sensors
+description: Flutter plugin for accessing accelerometer, gyroscope, and
+  magnetometer sensors.
+version: 0.0.1
+homepage: https://plus.fluttercommunity.dev/
+repository: https://github.com/fluttercommunity/plus_plugins/tree/main/packages/sensors_plus/sensors_plus
+issue_tracker: https://github.com/fluttercommunity/plus_plugins/labels/sensors_plus
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: FPPSensorsPlusPlugin
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  logging: ^1.2.0
+  meta: ^1.8.0
+  plugin_platform_interface: ^2.1.4
+
+dev_dependencies:
+  test: ^1.22.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=2.0.1 <4.0.0"
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
