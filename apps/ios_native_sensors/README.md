@@ -10,3 +10,7 @@ Only iOS
 
 Some symbol is changed, check the example code for more details, If you can help me to maintain this plugin, please contact me @normidar
 
+
+## TODO
+
+- iOS attitude sensor
