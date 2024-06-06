@@ -90,20 +90,21 @@ If you are using vscode, add this to your `.vscode/riverpod.code-snippets`:
     "prefix": "rp_swall",
     "description": "Create other switch",
     "body": [
+      "switch($1) {",
       "AsyncData(:final value) => Container(),",
       "AsyncLoading() => const Center(child: CircularProgressIndicator()),",
-      "AsyncError(:final error, :final stackTrace) => RiverpodErrorView(widgetName: '$$1', error: error, stackTrace: stackTrace),"
+      "AsyncError(:final error, :final stackTrace) => RiverpodErrorView(widgetName: '$$2', error: error, stackTrace: stackTrace),",
+      "}"
     ]
   },
   "Switch Po Data": {
     "scope": "dart",
     "prefix": "rp_swdata",
     "description": "Create data case",
-    "body": [
-      "AsyncData(:final value) => "
-    ]
-  },
+    "body": ["AsyncData(:final value) => "]
+  }
 }
+
 ```
 
 ## Usage
