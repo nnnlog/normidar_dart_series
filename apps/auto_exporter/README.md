@@ -1,75 +1,34 @@
-moved from https://github.com/normidar/auto_exporter
-
-[![pub package](https://img.shields.io/pub/v/auto_exporter.svg)](https://pub.dev/packages/auto_exporter)
+[日本語](./doc/ja.md) | [简体中文](./doc/zh.md) | [Русский](./doc/ru.md) | [한국어](./doc/ko.md) | [العربية](./doc/ar.md)
 
 # Auto Exporter
 
-This project fork from https://github.com/AlbertoMonteiro/FlutterAutoExport Thanks to the author. (But after fork from that, it has been a lot different)
+[![pub package](https://img.shields.io/pub/v/auto_exporter.svg)](https://pub.dev/packages/auto_exporter)
 
-If you request an issue please @normidar
+This project is used to automatically export Dart Classes and Enums etc.
 
-A Dart package that allows you to auto-export types globally.
+Creating and especially exporting can be quite difficult, and I understand this well as I have created several plugins myself.
 
-## How to use it?
+With Auto Exporter, you can automatically export plugins by adding annotations.
 
-Firstly: add those to `pubspec.yaml` 
+> Auto Exporter started as a fork of an existing plugin, but the code has evolved significantly since then. It has now become a completely different entity. (If you're interested, compare it with the original project at https://github.com/AlbertoMonteiro/FlutterAutoExport, which does not appear to have been updated recently.)
 
-```
+> If you encounter any issues, please create an issue mentioning @normidar. You can write in Japanese, Chinese, or English.
+
+## Usage
+
+Using it is simple. Add the following code to your `pubspec.yaml`:
+
+```yaml
 dependencies:
   auto_exporter_annotation: ^1.0.1
 
 dev_dependencies:
-  auto_exporter: ^3.0.0
+  auto_exporter: ^3.3.0
   build_runner: ^2.4.6
   build_test: ^2.2.0
 ```
 
-Secondly: add those to `build.yaml`:
-```
-targets:
-  $default:
-    builders:
-      auto_exporter:
-        options:
-          default_export_all: true # default export all files, if false only export @AutoExport() files, default is true.
-          project_name: your_project_name
-```
-
-Thirdly: run code:
-
-```
- dart run build_runner build  # Dart SDK
- flutter pub run build_runner build  # Flutter SDK
- flutter packages pub run build_runner build # try this on error
-```
-
-wait a minute... and you get the export file.
-
-## hint
-
-`dart pub publish --dry-run` to check your package prepare for `pub.dev`.
-
-
-## ignore exports
-
-If you want to ignore certain files without exporting them, you can use the annotation `IgnoreExport` for your class.
-
-you can see the example to know how to use this annotation.
-
-> feature advised by @hasimyerlikaya.
-
-## only export some files
-
-change the `default_export_all` option to false, and add @AutoExport() annotation to the files that you want to export.
-
-> feature advised by @sm-riyadh
-
-
-## Export specific sub packages
-
-Add a `sub_packages` field to your `build.yaml` file, type is list.
-
-like this(from example):
+Then, add the following code to `build.yaml` (if you don't have `build.yaml`, create it at the root of your project):
 
 ```yaml
 targets:
@@ -77,8 +36,48 @@ targets:
     builders:
       auto_exporter:
         options:
-          project_name: dart_example
-          sub_packages: 
-            - auto_exporter_annotation # the sub packages that you want to export
+          default_export_all: true # If true, exports everything by default; if false, only specific files are exported
+          project_name: <your plugin (package) name>
 ```
 
+If you want to export sub-packages, add the `sub_packages` field to `build.yaml` and specify a list of sub-package names.
+
+For example:
+
+```yaml
+targets:
+  $default:
+    builders:
+      auto_exporter:
+        options:
+          default_export_all: true # If true, exports everything by default; if false, only specific files are exported
+          project_name: <your plugin (package) name>
+          sub_packages:
+            - <sub-package A name>
+            - <sub-package B name>
+            ...
+```
+
+Then, run `build_runner`:
+
+```sh
+dart run build_runner build  # For Dart SDK, this usually works.
+```
+
+For Flutter, you might need to run this (though the above might also work):
+
+```sh
+flutter packages pub run build_runner build  # For Flutter SDK
+```
+
+After running, the files should be exported.
+
+## Annotations for Explicit Export and Ignoring Export
+
+- The `@AutoExport` annotation ensures export (even if `default_export_all` is false).
+- The `@IgnoreExport` annotation ignores export (even if `default_export_all` is true).
+
+## This plugin's features are thanks to the advice of:
+
+- @hasimyerlikaya -> IgnoreExport
+- @sm-riyadh -> AutoExport
