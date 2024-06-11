@@ -3,11 +3,9 @@
 // remenber to format this file, you can use: dart format
 // publish your package hint: dart pub publish --dry-run
 // if you want to update your packages on power: dart pub upgrade --major-versions
-export 'package:firebase_manager/src/utils/log.dart';
 export 'package:firebase_manager/src/crashlytics/crashlytics.dart';
 export 'package:firebase_manager/src/init/firebase_init_options.dart';
 export 'package:firebase_manager/src/init/firebase_manager.dart';
-export 'package:firebase_manager/src/common/steam_hoder/stream_holder.dart';
 export 'package:firebase_manager/src/messaging/fire_messaging.dart';
 export 'package:firebase_manager/src/database/string_encrypt/string_encrypt.dart';
 export 'package:firebase_manager/src/database/database_interface.dart';
