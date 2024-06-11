@@ -1,3 +1,7 @@
+## [3.3.1] - 2024-6-11
+
+* Docs: update docs for multi languages.
+
 
 ## [3.3.0] - 2024-6-4
 
