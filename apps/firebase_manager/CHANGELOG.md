@@ -1,3 +1,7 @@
+## [0.0.6] - 2024-6-11
+
+- Take out fm_firestore.
+
 ## 0.0.5
 
 - Export sub modules.
