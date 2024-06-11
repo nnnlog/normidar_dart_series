@@ -166,10 +166,6 @@ class RealtimeBranch {
     });
   }
 
-  Future updateMatcherDataset(FmMatcherDataset dataset) {
-    return RealtimeUtil.write(getPath(), dataset.toMap());
-  }
-
   /// only when child is a value return a stream of value.
   Stream<T> valueStream<T>() {
     return readStream().map((event) {

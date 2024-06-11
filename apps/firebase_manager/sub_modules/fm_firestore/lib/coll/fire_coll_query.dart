@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_manager/firebase_manager.dart';
+import 'package:fm_firestore/doc/fire_doc.dart';
+import 'package:fm_firestore/doc/fire_doc_tuple.dart';
 
 part 'fire_coll_filter.dart';
 

@@ -1,5 +1,5 @@
 name: fm_auth
-description: "an application by normidar."
+description: "An auth package for firebase manager"
 version: 0.0.1
 homepage: https://github.com/normidar-group/normidar_dart_series/tree/main/apps/firebase_manager
 

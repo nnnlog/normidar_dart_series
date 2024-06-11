@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:fm_firestore/coll/fire_coll.dart';
+import 'package:fm_firestore/ui/util/firestore_checkbox.dart';
 
 class FireDoc {
   final DocumentReference<Map<String, dynamic>> _reference;
   DocumentSnapshot<Map<String, dynamic>>? _snapshot;
 
-  StreamHolder<DocumentSnapshot<Map<String, dynamic>>>? _streamHolder;
 
   FireDoc(DocumentReference<Map<String, dynamic>> reference)
       : _reference = reference;
@@ -107,21 +107,21 @@ class FireDoc {
   /// **do not use this on your last coll.**
   ///
   /// ## !!! Be careful !!!
-  FireColl getUserColl() {
-    final userID = fs.auth.getNowUser()?.getID();
-    if (userID == null) {
-      throw Exception('no user');
-    }
-    return FireColl(_reference.collection(userID));
-  }
+  // FireColl getUserColl() {
+  //   final userID = fs.auth.getNowUser()?.getID();
+  //   if (userID == null) {
+  //     throw Exception('no user');
+  //   }
+  //   return FireColl(_reference.collection(userID));
+  // }
 
-  FireColl? getUserCollSafe() {
-    final userID = fs.auth.getNowUser()?.getID();
-    if (userID == null) {
-      return null;
-    }
-    return FireColl(_reference.collection(userID));
-  }
+  // FireColl? getUserCollSafe() {
+  //   final userID = fs.auth.getNowUser()?.getID();
+  //   if (userID == null) {
+  //     return null;
+  //   }
+  //   return FireColl(_reference.collection(userID));
+  // }
 
   /// this will save a snapshot and listen the change of fields
   ///
@@ -129,18 +129,9 @@ class FireDoc {
   ///
   /// TODO: fix this: _streamHolder will be disposed because it is not static
   Future<Object?> getValue(String key) async {
-    Log.debug(() => 'fire_doc.dart getValue: $key');
-    final streamHolder = _streamHolder;
     Object? rt;
 
-    late DocumentSnapshot<Map<String, dynamic>> snapshot;
-    if (streamHolder == null) {
-      final streamHolder = StreamHolder(_reference.snapshots());
-      _streamHolder = streamHolder;
-      snapshot = await streamHolder.init();
-    } else {
-      snapshot = streamHolder.value;
-    }
+    final DocumentSnapshot<Map<String, dynamic>> snapshot = await _getSnapshot();
 
     if (snapshot.exists) {
       final data = snapshot.data();
@@ -149,24 +140,6 @@ class FireDoc {
       }
     }
     return _castItem(rt);
-  }
-
-  /// FmSingleMatcher
-  Widget getValueWidget<T>(
-      String key, Widget Function(BuildContext, T) builder) {
-    return FmDataSingleMatcher<T>(
-        binder: FmFirestoreSingleBinder(doc: this, fieldName: key),
-        builder: builder);
-  }
-
-  /// FmDataMatcher
-  Widget getWidget<T extends FmMatcherDataset>(
-      {required T Function(Map<String, dynamic>) constructor,
-      required Widget Function(BuildContext, T) builder}) {
-    return FmDataMatcher(
-      binder: FmFirestoreDefaultBinder(doc: this, constructor: constructor),
-      builder: builder,
-    );
   }
 
   /// TODO:
@@ -189,7 +162,6 @@ class FireDoc {
   ///
   /// return id
   Future<String> update(Map<String, dynamic> data) async {
-    Log.debug(() => 'fire_doc.dart update: $data');
     try {
       await _reference.update(data);
     } on FirebaseException catch (e) {
@@ -202,13 +174,7 @@ class FireDoc {
     }
     final id = getID();
 
-    Log.debug(() => 'fire_doc.dart update: $data, id: $id');
     return id;
-  }
-
-  Future<String> updateMatcherDataset(FmMatcherDataset dataset) async {
-    final map = dataset.toMap();
-    return await update(map);
   }
 
   Future<DocumentSnapshot<Map<String, dynamic>>> _getSnapshot() async {

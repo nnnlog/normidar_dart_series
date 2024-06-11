@@ -14,6 +14,7 @@ dependencies:
 
   fm_auth: ^0.0.1
   fm_storage: ^0.0.2
+  fm_firestore: ^0.0.1
 
   # Firebase realtime database
   firebase_database: ^10.3.6
@@ -29,9 +30,6 @@ dependencies:
 
   # create link to register by email
   firebase_dynamic_links: ^5.0.17
-
-  # fire store
-  cloud_firestore: ^4.4.5
 
   # firebase ui
   firebase_ui_localizations: ^1.5.0

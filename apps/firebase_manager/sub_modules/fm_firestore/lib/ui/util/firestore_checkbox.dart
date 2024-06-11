@@ -1,5 +1,5 @@
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:fm_firestore/doc/fire_doc.dart';
 
 class FirestoreCheckbox extends StatelessWidget {
   final FireDoc doc;
@@ -28,11 +28,9 @@ class FirestoreCheckbox extends StatelessWidget {
               ),
             );
           } else {
-            Log.debug(() => 'FirestoreCheckbox: value is not bool?');
-            return Checkbox(value: false, onChanged: null);
+            return const Checkbox(value: false, onChanged: null);
           }
         } else {
-          Log.debug(() => 'FirestoreCheckbox: stream data is null');
           return Checkbox(
             value: false,
             onChanged: (v) => doc.update(

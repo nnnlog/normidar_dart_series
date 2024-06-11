@@ -4,8 +4,4 @@ targets:
       auto_exporter:
         options:
           default_export_all: true # default export all files, if false only export @AutoExport() files, default is true.
-          project_name: firebase_manager # project name, default is package name.
-          sub_packages:
-            - fm_auth
-            - fm_storage
-            - fm_firestore
+          project_name: fm_firestore

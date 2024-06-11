@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_manager/firebase_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fm_firestore/coll/fire_coll_query.dart';
+import 'package:fm_firestore/doc/fire_doc.dart';
+import 'package:fm_firestore/doc/fire_doc_tuple.dart';
+import 'package:fm_firestore/ui/query_builder.dart';
 
 /// Firestore collection
 class FireColl {
@@ -169,22 +172,22 @@ class FireColl {
   /// be sure your user is signed when you call this,
   /// else it will throw an exception.
   /// you can use getUserDocSafe() instead, it will return null if user is not signed in.
-  FireDoc getUserDoc() {
-    final userID = fs.auth.getNowUser()?.getID();
-    if (userID == null) {
-      throw Exception('User is not signed in');
-    }
-    return FireDoc(_reference.doc(userID));
-  }
+  // FireDoc getUserDoc() {
+  //   final userID = fs.auth.getNowUser()?.getID();
+  //   if (userID == null) {
+  //     throw Exception('User is not signed in');
+  //   }
+  //   return FireDoc(_reference.doc(userID));
+  // }
 
-  /// if user is not signed in, it will return null
-  FireDoc? getUserDocSafe() {
-    final userID = fs.auth.getNowUser()?.getID();
-    if (userID == null) {
-      return null;
-    }
-    return FireDoc(_reference.doc(userID));
-  }
+  // /// if user is not signed in, it will return null
+  // FireDoc? getUserDocSafe() {
+  //   final userID = fs.auth.getNowUser()?.getID();
+  //   if (userID == null) {
+  //     return null;
+  //   }
+  //   return FireDoc(_reference.doc(userID));
+  // }
 
   Future<List<FireDoc>> where(
     String field, {

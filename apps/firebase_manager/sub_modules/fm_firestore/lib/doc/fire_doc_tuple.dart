@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_manager/firebase_manager.dart';
+import 'package:fm_firestore/doc/fire_doc.dart';
 
 class FireDocTuple<T> extends FireDoc {
   final T data;
