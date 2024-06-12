@@ -81,3 +81,9 @@ After running, the files should be exported.
 
 - @hasimyerlikaya -> IgnoreExport
 - @sm-riyadh -> AutoExport
+
+## TODO:
+
+> PR is well come, @normidar first please.
+
+- auto choose show and hide to make it shorter

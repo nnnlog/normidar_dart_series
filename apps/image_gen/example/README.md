@@ -21,7 +21,7 @@ class Abc extends ImageGenerator {
     const height = 512;
     final rt = GenImage(width: width, height: height);
     final layer = Layer(width: width, height: height);
-    
+
     // draw a rect
     layer.draw(const Rect(
       left: PercentQuantity(0),
@@ -37,3 +37,12 @@ class Abc extends ImageGenerator {
   }
 }
 ```
+
+## TODO
+
+> PR is well come, @normidar please.
+
+- Draw circle feature
+- Draw line feature
+- Draw text feature
+
