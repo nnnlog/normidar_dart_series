@@ -1,3 +1,7 @@
+## [0.2.1] - 2024-6-12
+
+- Make docs better.
+
 ## 0.2.0
 
 - add Mapper Feature

@@ -1,16 +1,39 @@
-# example
+# Image Gen
 
-an application by normidar.
+A tool for generating images on your dart/flutter project.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter application.
+1. Run `dart pub add dev:image_gen` to add the plugin to your project.
+2. Create a file to gen image.
+3. Add `import 'package:image_gen/image_gen.dart';` to your file.(don't import other libraries)
+4. Create a class that extends `ImageGenerator` and annotate it with `@ImageGen` annotation. (you can see example below)
+5. Run `dart run build_runner build` to generate the image to your assets folder.
 
-A few resources to get you started if this is your first Flutter project:
+```dart
+import 'package:image_gen/image_gen.dart';
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+@ImageGen()
+class Abc extends ImageGenerator {
+  @override
+  GenImage generate() {
+    const width = 512;
+    const height = 512;
+    final rt = GenImage(width: width, height: height);
+    final layer = Layer(width: width, height: height);
+    
+    // draw a rect
+    layer.draw(const Rect(
+      left: PercentQuantity(0),
+      right: PercentQuantity(0.5),
+      top: PercentQuantity(0),
+      bottom: PercentQuantity(0.5),
+      color: Uint8Color(),
+      roundCorner: 0.5,
+    ));
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    rt.addLayer(layer);
+    return rt;
+  }
+}
+```
