@@ -66,9 +66,9 @@ If you are using vscode, add this to your `.vscode/riverpod.code-snippets`:
       "}"
     ]
   },
-  "Consumer Widget": {
+  "Consumer Stateless Widget": {
     "scope": "dart",
-    "prefix": "rp_consumer",
+    "prefix": "rp_consumer_stl",
     "description": "Create a ConsumerStatelessWidget",
     "body": [
       "import 'package:flutter/material.dart';",
@@ -85,6 +85,30 @@ If you are using vscode, add this to your `.vscode/riverpod.code-snippets`:
       "}"
     ]
   },
+  "Consumer Stateful Widget": {
+    "scope": "dart",
+    "prefix": "rp_consumer_stf",
+    "description": "Create a ConsumerStatefulWidget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:flutter_riverpod/flutter_riverpod.dart';",
+      "",
+      "// $1",
+      "",
+      "class ${1/(.*)/${1:/pascalcase}/} extends ConsumerStatefulWidget {",
+      "\tconst ${1/(.*)/${1:/pascalcase}/}({super.key,});\n",
+      "\t@override",
+      "\tConsumerState<${1/(.*)/${1:/pascalcase}/}> createState() => _${1/(.*)/${1:/pascalcase}/}State();",
+      "}",
+      "",
+      "class _${1/(.*)/${1:/pascalcase}/}State extends ConsumerState<${1/(.*)/${1:/pascalcase}/}> {",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t\treturn Container();",
+      "\t}",
+      "}"
+    ]
+  },
   "Switch Po all": {
     "scope": "dart",
     "prefix": "rp_swall",
@@ -93,7 +117,7 @@ If you are using vscode, add this to your `.vscode/riverpod.code-snippets`:
       "switch($1) {",
       "AsyncData(:final value) => Container(),",
       "AsyncLoading() => const Center(child: CircularProgressIndicator()),",
-      "AsyncError(:final error, :final stackTrace) => RiverpodErrorView(widgetName: '$$2', error: error, stackTrace: stackTrace),",
+      "AsyncError(:final error, :final stackTrace) => RiverpodErrorView(widgetName: '$this', error: error, stackTrace: stackTrace),",
       "}"
     ]
   },
