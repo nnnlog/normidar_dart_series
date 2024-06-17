@@ -24,8 +24,7 @@ class _FilesPoolPageState extends State<FilesPoolPage> {
             final result = await FilePicker.platform.pickFiles();
             if (result != null) {
               for (var element in result.files) {
-                await fs.db.storage
-                    .uploadPoolFile(File(element.path!));
+                await fs.db.storage.uploadPoolFile(File(element.path!));
               }
             }
 

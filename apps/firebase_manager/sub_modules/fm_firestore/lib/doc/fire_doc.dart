@@ -7,7 +7,6 @@ class FireDoc {
   final DocumentReference<Map<String, dynamic>> _reference;
   DocumentSnapshot<Map<String, dynamic>>? _snapshot;
 
-
   FireDoc(DocumentReference<Map<String, dynamic>> reference)
       : _reference = reference;
 
@@ -131,7 +130,8 @@ class FireDoc {
   Future<Object?> getValue(String key) async {
     Object? rt;
 
-    final DocumentSnapshot<Map<String, dynamic>> snapshot = await _getSnapshot();
+    final DocumentSnapshot<Map<String, dynamic>> snapshot =
+        await _getSnapshot();
 
     if (snapshot.exists) {
       final data = snapshot.data();

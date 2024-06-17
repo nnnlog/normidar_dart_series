@@ -9,8 +9,8 @@ void main() {
   FirebaseManager.share.initApp(
     FirebaseInitOptions(
       requiresLogin: true,
-      firebaseOptions:
-          null as FirebaseOptions, //TODO: Must be DefaultFirebaseOptions.currentPlatform,
+      firebaseOptions: null
+          as FirebaseOptions, //TODO: Must be DefaultFirebaseOptions.currentPlatform,
       home: () => const FirestoreMatcherPage(),
     ),
   );

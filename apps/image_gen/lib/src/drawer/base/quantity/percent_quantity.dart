@@ -13,7 +13,7 @@ class PercentQuantity extends Quantity {
   num getPixelValue(num size) {
     return value * size;
   }
-  
+
   @override
   Map<String, dynamic> toJson() {
     return {
@@ -25,5 +25,4 @@ class PercentQuantity extends Quantity {
   static PercentQuantity fromJson(Map<String, dynamic> json) {
     return PercentQuantity(json['value']);
   }
-  
 }

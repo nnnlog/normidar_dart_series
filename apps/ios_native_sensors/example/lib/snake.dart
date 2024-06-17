@@ -99,7 +99,8 @@ class SnakeState extends State<Snake> {
   void _step() {
     final newDirection = acceleration == null
         ? null
-        : acceleration!.vector.x.abs() < 1.0 && acceleration!.vector.y.abs() < 1.0
+        : acceleration!.vector.x.abs() < 1.0 &&
+                acceleration!.vector.y.abs() < 1.0
             ? null
             : (acceleration!.vector.x.abs() < acceleration!.vector.y.abs())
                 ? math.Point<int>(0, acceleration!.vector.y.sign.toInt())

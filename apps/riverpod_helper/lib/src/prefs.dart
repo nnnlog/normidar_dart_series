@@ -11,7 +11,7 @@ class Prefs {
   static Future<T> get<T>(String key, T defaultValue) async {
     final prefs = await SharedPreferences.getInstance();
     return switch (T) {
-      const (bool)=> prefs.getBool(key) as T? ?? defaultValue,
+      const (bool) => prefs.getBool(key) as T? ?? defaultValue,
       const (int) => prefs.getInt(key) as T? ?? defaultValue,
       const (double) => prefs.getDouble(key) as T? ?? defaultValue,
       const (String) => prefs.getString(key) as T? ?? defaultValue,

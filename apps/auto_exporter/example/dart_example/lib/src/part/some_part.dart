@@ -1,4 +1,3 @@
 part of 'a_container.dart';
 
-class SomePart extends AContainer {
-}
+class SomePart extends AContainer {}

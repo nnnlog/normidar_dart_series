@@ -1,5 +1,3 @@
-
-
 part of 'fire_coll_query.dart';
 
 class FireCollFilter {

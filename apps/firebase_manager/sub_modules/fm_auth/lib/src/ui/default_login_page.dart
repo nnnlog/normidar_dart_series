@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fm_auth/src/login/login_tool.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
-
 @AutoExport()
+
 /// TODO: implement login features
 class DefaultLoginPage extends StatelessWidget {
   final bool allowAnonymousLogin;

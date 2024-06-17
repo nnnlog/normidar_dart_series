@@ -120,7 +120,11 @@ class ExportsBuilder implements Builder {
 
       // only take not ignore class
       final toExpLst = [...normalList, ...exportList].join(', ');
-      return "export 'package:$exportUri' show $toExpLst;";
+      if (toExpLst.isNotEmpty) {
+        return "export 'package:$exportUri' show $toExpLst;";
+      } else {
+        return null;
+      }
     } else {
       // default unexport all
       if (exportCount == 0) {

@@ -59,8 +59,8 @@ class GenImage {
     final width = json['width'] as int;
     final height = json['height'] as int;
     final backgroundColor = PureColor.fromJson(json['backgroundColor']);
-    final layerStack = (json['layerStack'] as List)
-        .map((e) => Layer.fromJson(e)); 
+    final layerStack =
+        (json['layerStack'] as List).map((e) => Layer.fromJson(e));
 
     final genImage = GenImage(
         width: width, height: height, backgroundColor: backgroundColor);
