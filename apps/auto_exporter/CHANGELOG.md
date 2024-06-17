@@ -1,3 +1,8 @@
+## [3.3.2] - 2024-6-17
+
+* Fix: Only one @IgnoreExport annotation show nothing.
+
+
 ## [3.3.1] - 2024-6-11
 
 * Docs: update docs for multi languages.
