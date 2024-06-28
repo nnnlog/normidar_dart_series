@@ -1,3 +1,7 @@
+## [3.4.1] - 2024-6-28
+
+* Fix: Disordered comment
+
 ## [3.4.0] - 2024-6-28
 
 * Sort and format export list: all your device will generate the same export file.

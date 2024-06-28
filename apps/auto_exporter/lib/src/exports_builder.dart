@@ -31,13 +31,14 @@ class ExportsBuilder implements Builder {
     final exports = buildStep.findAssets(Glob('lib/**/*.dart'));
 
     final expList = <String>[];
-    final content = [
+    final head = [
       "// run this to reset your file:  dart run build_runner build",
       "// or use flutter:               flutter packages pub run build_runner build",
       "// remenber to format this file, you can use: dart format",
       "// publish your package hint: dart pub publish --dry-run",
       "// if you want to update your packages on power: dart pub upgrade --major-versions",
     ];
+    final content = <String>[];
     await for (var exportLibrary in exports) {
       // each file
 
@@ -68,6 +69,7 @@ class ExportsBuilder implements Builder {
     content.addAll(expList);
     if (content.isNotEmpty) {
       content.sort();
+      content.insertAll(0, head);
       await buildStep.writeAsString(
           AssetId(buildStep.inputId.package, 'lib/$packageName.dart'),
           DartFormatter().format(content.join('\n')));
