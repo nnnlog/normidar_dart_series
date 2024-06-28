@@ -1,3 +1,7 @@
+## [3.4.0] - 2024-6-28
+
+* Sort and format export list: all your device will generate the same export file.
+
 ## [3.3.2] - 2024-6-17
 
 * Fix: Only one @IgnoreExport annotation show nothing.
