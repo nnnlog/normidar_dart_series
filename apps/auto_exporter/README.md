@@ -87,3 +87,4 @@ After running, the files should be exported.
 > PR is well come, @normidar first please.
 
 - auto choose show and hide to make it shorter
+- A way to export a file or hide a file

@@ -2,6 +2,7 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:build/build.dart';
+import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
 
 /// the ExportsBuilder will create the file to
@@ -66,9 +67,10 @@ class ExportsBuilder implements Builder {
 
     content.addAll(expList);
     if (content.isNotEmpty) {
+      content.sort();
       await buildStep.writeAsString(
           AssetId(buildStep.inputId.package, 'lib/$packageName.dart'),
-          content.join('\n'));
+          DartFormatter().format(content.join('\n')));
     }
   }
 
