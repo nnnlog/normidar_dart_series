@@ -1,3 +1,7 @@
+## [0.2.2] - 2024-7-3
+
+- Add LinearGradient Feature.
+
 ## [0.2.1] - 2024-6-12
 
 - Make docs better.
