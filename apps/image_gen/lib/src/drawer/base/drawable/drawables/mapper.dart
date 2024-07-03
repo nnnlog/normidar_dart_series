@@ -1,5 +1,7 @@
 import 'package:image_gen/image_gen.dart';
 
+/// Map a color to another color,
+/// It will override the color in itself layer.
 class Mapper extends Drawable {
   List<int> mapper;
   final MapperType type;

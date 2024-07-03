@@ -17,4 +17,12 @@ abstract class Quantity {
         throw Exception('Unknown Quantity type: ${json['id']}');
     }
   }
+
+  static PercentQuantity percent(num value) {
+    return PercentQuantity(value);
+  }
+
+  static PixelQuantity pixel(num value) {
+    return PixelQuantity(value);
+  }
 }

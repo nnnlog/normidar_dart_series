@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:image_gen/image_gen.dart';
 
+/// Drawable is one times of drawing,
+/// just like a pen.
 abstract class Drawable {
   const Drawable();
 
@@ -27,6 +29,8 @@ abstract class Drawable {
         return Img.fromJson(json);
       case 'Mapper':
         return Mapper.fromJson(json);
+      case 'LinearGradient':
+        return LinearGradient.fromJson(json);
       default:
         throw UnimplementedError();
     }

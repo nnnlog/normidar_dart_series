@@ -1,6 +1,7 @@
 import 'package:image/image.dart';
 import 'package:image_gen/image_gen.dart';
 
+/// Draw an image to the canvas from a path
 class Img extends Drawable {
   final String path;
 
